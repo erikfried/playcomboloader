@@ -40,9 +40,7 @@ object ComboLoader extends Controller {
           Logger.warn("Not found (is dir):" +url)
           "/*Not found " +url + "*/"
         case url => {
-          Logger.debug("found " +url)
           val stream = url.openStream()
-          Logger.debug("bytes" + stream.available())
           val source = Source.fromInputStream(stream, "UTF-8").getLines()
           source.mkString("\n")
         }
